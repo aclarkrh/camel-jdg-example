@@ -69,7 +69,7 @@ public class CamelRouter extends RouteBuilder {
 
 
         // Query JDG for an Person using a query
-        rest("/person/").get("/query/{queryString}").to("direct:queryPerson");
+        rest("/person-query/").get().to("direct:queryPerson");
 
         from("direct:queryPerson")
             .log("About to query Person using query ${headers.queryString}")
